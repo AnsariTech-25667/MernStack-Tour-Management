@@ -1,9 +1,14 @@
-const express = require('express');
+// backend/routes/bookingRoutes.js
+import express from "express";
+import { createBooking, getUserBookings } from "../controllers/bookingController.js";
+import auth from "../middleware/auth.js";
+
 const router = express.Router();
-const bookingController = require('../controllers/bookingController');
-const auth = require('../middleware/auth');
 
-router.post('/', auth, bookingController.createBooking);
-router.get('/me', auth, bookingController.getUserBookings);
+// Create a booking (protected)
+router.post("/", auth, createBooking);
 
-module.exports = router;
+// Get bookings for logged-in user (protected)
+router.get("/me", auth, getUserBookings);
+
+export default router;   // ✅ default export

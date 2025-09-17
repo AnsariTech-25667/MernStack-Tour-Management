@@ -8,7 +8,7 @@ export default function TourCard({ tour }) {
       <CardMedia
         component="img"
         height="180"
-        image={tour.image || '/logo192.png'}
+        image={tour.photo || '/logo192.png'}
         alt={tour.title}
       />
       <CardContent>
